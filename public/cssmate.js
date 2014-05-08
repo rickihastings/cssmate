@@ -37,7 +37,7 @@
 		try {
 			connection = new WebSocket('ws://' + config.hostname + ':' + config.port + '/websocket');
 		} catch (e) {
-			console.log('Cannot connect to websocket server', config.hostname, config.port);
+			console.error('Cannot connect to websocket server', config.hostname, config.port);
 		}
 
 		connection.onopen = function() {
@@ -45,8 +45,8 @@
 		}
 		// when the connection is open, send some data to the server
 
-		connection.onerror = function (error) {
-			websocketConnect();
+		connection.onerror = function(error) {
+			console.error('Websocket error', config.hostname, config.port, error);
 		}
 		// log errors
 
@@ -79,7 +79,7 @@
 
 	function reloadStylesheet(filename) {
 		if (!tags[filename]) {
-			console.log('Apparently', filename, 'has been changed but we don\'t have any record of having it?')
+			console.warn('Apparently', filename, 'has been changed but we don\'t have any record of having it?');
 			return;
 		}
 

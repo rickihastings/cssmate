@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"encoding/json"
-	"github.com/gorilla/websocket"
+	"github.com/rickihastings/cssmate/websocket"
 )
 
 type connection struct {

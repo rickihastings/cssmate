@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"github.com/gorilla/websocket"
+	"github.com/rickihastings/cssmate/websocket"
 )
 
 type message struct {
@@ -13,7 +13,7 @@ type message struct {
 var (
 	port		string
 	folder		string
-	upgrader 	= &websocket.Upgrader{ReadBufferSize: 1024, WriteBufferSize: 1024}
+	upgrader 	= websocket.Upgrader{ReadBufferSize: 1024, WriteBufferSize: 1024}
 )
 
 func main() {

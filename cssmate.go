@@ -76,7 +76,10 @@ func setupWatcher() {
 }
 
 func wsHandler(w http.ResponseWriter, r *http.Request) {
-	ws, err := upgrader.Upgrade(w, r, nil)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	// allow cross domain
+
+	ws, err := upgrader.Upgrade(w, r, w.Header())
 	if err != nil {
 		return
 	}

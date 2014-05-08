@@ -26,7 +26,7 @@ There's two ways of using CSSMate, if you have the Go environment setup on your 
 
 All this is providing you have the Go environment setup correctly (which I'm not going to go through here), the ``cssmate`` binary will be available in the folder you're now in.
 
-Alternatively, you can clone the github repo and grab the pre built binaries for 64, 32 bit linux and 32 bit Windows, I never bothered doing OSX, if anyone wants it though speak up. ::
+Alternatively, you can clone the github repo and grab the pre built binaries for 64, 32 bit linux and 32 bit Windows. ::
 
    $ git clone https://github.com/rickihastings/cssmate
    $ cd cssmate/bin
@@ -40,9 +40,9 @@ You'll see two files ::
 Running
 =======
 
-Once you have the binary compiled you can simply run it with the following command ::
+Once you have the binary compiled you can simply run it with the following command (you should run it from the home directory and not the bin folder) ::
 
-   $ ./cssmate --path="/home/myuser/myproject/css"
+   $ ./bin/cssmate --path="/home/myuser/myproject/css"
 
 CSSMate will now watch for any file changes in that folder and propogate them to any clients, before it will work though, you need to go over to your ``index.html`` or base template and insert the following script tag at the end of the body tag. ::
 
