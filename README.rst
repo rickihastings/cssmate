@@ -40,7 +40,7 @@ You'll see three files ::
 Running
 =======
 
-Once you have the binary compiled you can simply run it with the following command (you should run it from the home directory and not the bin folder) ::
+Once you have the binary compiled (or picked one from bin) you can simply run it with the following command (you should run it from the home directory and not the bin folder) ::
 
    $ ./bin/cssmate --path="/home/myuser/myproject/css"
 
