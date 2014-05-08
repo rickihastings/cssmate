@@ -34,7 +34,11 @@
 	}
 
 	function websocketConnect() {
-		connection = new WebSocket('ws://' + config.hostname + ':' + config.port + '/websocket');
+		try {
+			connection = new WebSocket('ws://' + config.hostname + ':' + config.port + '/websocket');
+		} catch (e) {
+			console.log('Cannot connect to websocket server', config.hostname, config.port);
+		}
 
 		connection.onopen = function() {
 			connection.send(JSON.stringify({command: 'watching', data: files.join(',')}));

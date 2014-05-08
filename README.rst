@@ -26,10 +26,16 @@ There's two ways of using CSSMate, if you have the Go environment setup on your 
 
 All this is providing you have the Go environment setup correctly (which I'm not going to go through here), the ``cssmate`` binary will be available in the folder you're now in.
 
-Alternatively, you can clone the github repo and grab the pre built binary for linux, I haven't yet built these for any other operating systems, feel free to add these via a pull request if you do build them on Windows and OSX. ::
+Alternatively, you can clone the github repo and grab the pre built binaries for 64, 32 bit linux and 32 bit Windows, I never bothered doing OSX, if anyone wants it though speak up. ::
 
    $ git clone https://github.com/rickihastings/cssmate
    $ cd cssmate/bin
+
+You'll see two files ::
+
+   cssmate-386
+   cssmate-amd64
+   cssmate.exe
 
 Running
 =======
