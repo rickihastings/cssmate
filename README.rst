@@ -81,3 +81,10 @@ Notes
 =====
 
 I built this in about 2 hours as a quick fix to one of my problem, but I'm so pleased with it I'd like to share it! It may have some small bugs, feel free to open an issue and I'll get round to fixing it. It has no tests, it could do with some, and probably will soon when I get round to it.
+
+Demo
+====
+
+Heres a little video of me working with a very complicated JS heavy application, that tends to break or be slow with the other methods I mentioned.
+
+https://dl.dropboxusercontent.com/u/73496/video%20%2801%29.mp4
