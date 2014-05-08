@@ -47,4 +47,4 @@ You can run cssmate on a different port by passing in the ``--port`` parameter, 
 Notes
 =====
 
-I built this in about 2 hours as a quick fix to one of my problem, but I'm so pleased with it I'd like to share it! It may have some small bugs, feel free to open an issue and I'll get round to fixing it.
+I built this in about 2 hours as a quick fix to one of my problem, but I'm so pleased with it I'd like to share it! It may have some small bugs, feel free to open an issue and I'll get round to fixing it. It has no tests, it could do with some, and probably will soon when I get round to it.
