@@ -25,7 +25,8 @@
 
 		for (var i = 0, len = links && links.length; i < len; ++i) {
 			var link = links[i],
-				filename = link.href.replace(link.baseURI, '');
+				filenames = link.href.replace(link.baseURI, '').split('/'),
+				filename = filenames[filenames.length - 1];
 			
 			tags[filename] = link;
 			files.push(filename);
@@ -78,12 +79,16 @@
 	}
 
 	function reloadStylesheet(filename) {
-		if (!tags[filename]) {
+		var link = tags[filename];
+		if (!link) {
 			console.warn('Apparently', filename, 'has been changed but we don\'t have any record of having it?');
 			return;
 		}
-
-		tags[filename].href = filename + '?id=' + new Date().getMilliseconds();
+		
+		var parts = link.href.replace(link.baseURI, '').split('/');
+		
+		parts[parts.length - 1] = filename + '?id=' + new Date().getMilliseconds();
+		tags[filename].href = parts.join('/');
 		// we whack a timestamp on the end so the browser knows its different and reloads it
 	}
 
