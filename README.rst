@@ -44,6 +44,33 @@ CSSMate will now watch for any file changes in that folder and propogate them to
 
 You can run cssmate on a different port by passing in the ``--port`` parameter, you will need to change
 
+SASS/LESS
+=========
+
+Don't fear, it works with SASS and LESS and any other preprocessor, however, not with the traditional JS libraries. It's likely you're using some sort of task runner to compile your CSS, if you are not, you should be!
+
+I use gulp for one of my projects, I have a watch task which watches for changes in my LESS, and compiles it to CSS, I then have CSSMate watching the output folder.
+
+My gulp watch task looks like this: ::
+
+   gulp.task('css:watch', function() {
+      gulp.watch('./client/less/**/*.less', ['css']);
+   });
+
+My grunt task used to look like this: ::
+
+   	watch: {
+		less: {
+			files: 'client/less/**/*.less',
+           	tasks: ['less'],
+           	options: {
+				event: ['all'],
+			}
+		}
+	}
+
+I have two terminal windows open, one running `gulp watch` or `grunt watch`, and another running `./cssmate`
+
 Notes
 =====
 
