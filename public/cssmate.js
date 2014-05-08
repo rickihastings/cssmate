@@ -12,7 +12,7 @@
 	var config = {
 		disabled: false,
 		hostname: '10.0.33.34',
-		port: 3000,
+		port: 58900,
 	}
 
 	function init() {
