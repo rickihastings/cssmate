@@ -69,7 +69,7 @@ My grunt task used to look like this: ::
 		}
 	}
 
-I have two terminal windows open, one running `gulp watch` or `grunt watch`, and another running `./cssmate`
+I have two terminal windows open, one running ``gulp watch`` or ``grunt watch``, and another running ``./cssmate``
 
 Notes
 =====
