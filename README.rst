@@ -31,7 +31,7 @@ Alternatively, you can clone the github repo and grab the pre built binaries for
    $ git clone https://github.com/rickihastings/cssmate
    $ cd cssmate/bin
 
-You'll see two files ::
+You'll see three files ::
 
    cssmate-386
    cssmate-amd64
