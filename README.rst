@@ -40,13 +40,15 @@ You'll see three files ::
 Running
 =======
 
-Once you have the binary compiled (or picked one from bin) you can simply run it with the following command (you should run it from the home directory and not the bin folder) ::
+Once you have the binary compiled (or picked one from bin) you can simply run it with the following command ::
 
-   $ ./bin/cssmate --path="/home/myuser/myproject/css"
+   $ ./cssmate --path="/home/myuser/myproject/css" --host="127.0.0.1"
+
+You should manually enter a host to bind to, if you leave it blank it will bind to 0.0.0.0 which will work, however it will inject this hostname into the javascript which means it won't be able to connect.
 
 CSSMate will now watch for any file changes in that folder and propogate them to any clients, before it will work though, you need to go over to your ``index.html`` or base template and insert the following script tag at the end of the body tag. ::
 
-   <script type="text/javascript" src="http://localhost:58900/cssmate.js"></script>
+   <script type="text/javascript" src="http://127.0.0.1:58900/cssmate.js"></script>
 
 You can run cssmate on a different port by passing in the ``--port`` parameter, you will need to change
 
