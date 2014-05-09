@@ -17,25 +17,24 @@ CSSMate was built in Go so it can be compiled to native binaries so there's no n
 Installing
 ==========
 
-There's two ways of using CSSMate, if you have the Go environment setup on your machine you can compile it stupidly easy with the following commands ::
+There's two ways of using CSSMate, if you have the Go environment setup on your machine you can compile it stupidly easy (:heart: Go) with the following command ::
 
-    $ go get github.com/rickihastings/cssmate
-    $ cd $GOPATH/src/github.com/rickihastings/cssmate
-    $ go build -o bin/cssmate
-    $ cd $GOPATH/bin
+    $ make
 
-All this is providing you have the Go environment setup correctly (which I'm not going to go through here), the ``cssmate`` binary will be available in the folder you're now in.
+All this is providing you have the Go environment setup correctly (which I'm not going to go through here), the ``cssmate`` binary will be available in the bin folder.
 
 Alternatively, you can clone the github repo and grab the pre built binaries for 64, 32 bit linux and 32 bit Windows. ::
 
    $ git clone https://github.com/rickihastings/cssmate
    $ cd cssmate/bin
 
-You'll see three files ::
+You'll see three files, run which ever is suitable for your system. ::
 
    cssmate-386
    cssmate-amd64
    cssmate.exe
+
+
 
 Running
 =======
