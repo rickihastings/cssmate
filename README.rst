@@ -31,7 +31,7 @@ Alternatively, you can clone the github repo and grab the pre built binaries for
    $ git clone https://github.com/rickihastings/cssmate
    $ cd cssmate/bin
 
-You'll see two files ::
+You'll see three files ::
 
    cssmate-386
    cssmate-amd64
@@ -40,7 +40,7 @@ You'll see two files ::
 Running
 =======
 
-Once you have the binary compiled you can simply run it with the following command (you should run it from the home directory and not the bin folder) ::
+Once you have the binary compiled (or picked one from bin) you can simply run it with the following command (you should run it from the home directory and not the bin folder) ::
 
    $ ./bin/cssmate --path="/home/myuser/myproject/css"
 
@@ -81,3 +81,10 @@ Notes
 =====
 
 I built this in about 2 hours as a quick fix to one of my problem, but I'm so pleased with it I'd like to share it! It may have some small bugs, feel free to open an issue and I'll get round to fixing it. It has no tests, it could do with some, and probably will soon when I get round to it.
+
+Demo
+====
+
+Heres a little video of me working with a very complicated JS heavy application, that tends to break or be slow with the other methods I mentioned.
+
+https://dl.dropboxusercontent.com/u/73496/video%20%2801%29.mp4
