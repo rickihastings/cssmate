@@ -69,6 +69,8 @@ func setupWatcher() {
 	}
 	// setup the watcher and wait for errors
 
+	fmt.Println("now watching for changes in", folder)
+
 	<-done
 	// wait till we're done
 
