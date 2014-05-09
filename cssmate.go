@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"fmt"
+	"regexp"
 	"strings"
 	"net/http"
 	"encoding/json"
@@ -10,9 +11,13 @@ import (
 	"github.com/howeyc/fsnotify"
 )
 
-func setupCssMate(p *int, path *string) {
+var m *martini.ClassicMartini
+
+func setupCssMate(p *int, hs *string, path *string) {
 	folder = *path
-	port = fmt.Sprintf(":%d", *p)
+	host = *hs
+	port = *p
+	bind = fmt.Sprintf("%s:%d", host, *p)
 	// assign folder and port
 
 	c := make(chan bool)
@@ -33,11 +38,12 @@ func setupCssMate(p *int, path *string) {
 }
 
 func setupMartini() {
-	m := martini.Classic()
+	m = martini.Classic()
 	m.Get("/websocket", wsHandler)
+	m.Get("/cssmate.js", jsHandler)
 	
-	fmt.Println("[martini] listening on", port)
-	log.Fatal(http.ListenAndServe(port, m))
+	fmt.Println("[martini] listening on", bind)
+	log.Fatal(http.ListenAndServe(bind, m))
 }
 
 func setupWatcher() {
@@ -69,7 +75,7 @@ func setupWatcher() {
 	}
 	// setup the watcher and wait for errors
 
-	fmt.Println("now watching for changes in", folder)
+	fmt.Println("[watcher] now watching for changes in", folder)
 
 	<-done
 	// wait till we're done
@@ -97,12 +103,29 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 	c.reader()
 }
 
+func jsHandler(w http.ResponseWriter, r *http.Request) (int, string) {
+	data, err := Asset("embed/cssmate.js")
+	if err != nil || len(data) == 0 {
+		return 404, "404 page not found"
+	}
+
+	output := string(data)
+	hostRegex := regexp.MustCompile("\\/\\* inject\\:host \\*\\/")
+	portRegex := regexp.MustCompile("\\/\\* inject\\:port \\*\\/")
+	
+	output = hostRegex.ReplaceAllLiteralString(output, fmt.Sprintf("'%s'", host))
+	output = portRegex.ReplaceAllLiteralString(output, fmt.Sprintf("%d", port))
+	// inject the config vars
+
+	return 200, output
+}
+
 func fileModified(ev *fsnotify.FileEvent) {
 	fn := strings.Replace(ev.Name, folder, "", 1)[1:]
 	
 	for v := range h.connections {
 		if stringInSlice(fn, v.files) {
-			fmt.Println("Reloading", fn, "notifying clients")
+			fmt.Println("[watcher] reloading", fn, "notifying clients")
 
 			var out message = message{"changed", fn}
 			output, jerr := json.Marshal(out)

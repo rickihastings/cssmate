@@ -11,17 +11,20 @@ type message struct {
 }
 
 var (
-	port		string
+	bind		string
 	folder		string
+	host		string
+	port		int
 	upgrader 	= websocket.Upgrader{ReadBufferSize: 1024, WriteBufferSize: 1024}
 )
 
 func main() {
 	portPtr := flag.Int("port", 58900, "the default port to run on")
-	pathPtr := flag.String("path", "public", "the folder to monitor, can be local or full path")
+	hostPtr := flag.String("host", "0.0.0.0", "the host to bind to")
+	pathPtr := flag.String("path", "", "the folder to monitor, can be local or full path")
 
 	flag.Parse()
 	
-	setupCssMate(portPtr, pathPtr)
+	setupCssMate(portPtr, hostPtr, pathPtr)
 }
 

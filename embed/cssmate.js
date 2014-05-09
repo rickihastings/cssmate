@@ -11,8 +11,8 @@
 	var tags = {};
 	var config = {
 		disabled: false,
-		hostname: '10.0.33.34',
-		port: 58900,
+		hostname: /* inject:host */,
+		port: /* inject:port */,
 	}
 
 	function init() {
